@@ -1,4 +1,4 @@
-include<stdio.h>
+#include<stdio.h>
 
 typedef struct my_date_t
 {
@@ -10,7 +10,11 @@ typedef struct my_date_t
 
 
 
-   class my_date_t
+   struct string_to_date
+   {
+       /* data */
+   };
+    my_date_t
     {
         satic void Main(string[] args)
         {

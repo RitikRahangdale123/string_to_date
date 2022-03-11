@@ -14,10 +14,10 @@ else
 endif
 
 build:
-	gcc $(SRC) -o $(call FixPath,$(PROJ_NAME).$(EXEC))
+	gcc $(SRC) -o $(call FixPath,$(string_to_date).$(EXEC))
 
 run: build
-	./$(call FixPath,$(PROJ_NAME).$(EXEC))
+	./$(call FixPath,$(string_to_date).$(EXEC))
 
 clean:
-	$(RM) $(call FixPath,$(PROJ_NAME).$(EXEC))
+	$(RM) $(call FixPath,$(string_to_date).$(EXEC))
