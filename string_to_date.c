@@ -1,49 +1,36 @@
-#include<stdio.h>
-
-typedef struct my_date_t
-{
-    int date;       /*<<< date */
-    int month;      /*<<< month */
-    int year;       /*<<< year   */
-}my_date_t;
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "string_to_date.h"
+#include "unity.h"
 
 
+error_t string_to_date_converter(char* input_string, my_date_t* result_date){
+    if(input_string==NULL||result_date==NULL)
+        return NULL_PTR;
+        
+	int init_size = strlen(input_string);
+	char delim[] = "/";
 
-
-   struct string_to_date
-   {
-       /* data */
-   };
-    my_date_t
-    {
-        satic void Main(string[] args)
-        {
-            string txt1="2021-01-30";
-
-            DateTime d1= DateTime.ParseExact(txt1,"year-month-date",null);
-
-            string txt2="2021/01/30";
-
-            DateTime d2= DateTime.ParseExact(txt2,"year/month/date",null);
-
-            string txt3="2021.01.30";
-
-            DateTime d3= DateTime.ParseExact(txt1,"year.month.date",null);
-        }
+	char *ptr = strtok(input_string, delim);
+    int n[3],j=-1;
+	while(ptr != NULL)
+	{
+        j++;
+         n[j]=atoi(ptr);
+		ptr = strtok(NULL, delim);
+        
+	}
+    
+    if(n[0]>0 && n[0]<32 && n[1]>0 && n[1]<13 && n[2]>0){
+        result_date->date=n[0];
+        result_date->month=n[1];
+        result_date->year=n[2];
+        return SUCCESS;
     }
-
-
-
-
-int main()
-{
-    int date,month,year;
-
-    printf("%d",date);
-    printf("%d",month);
-    printf("%d",year);
-   
-   return 0;
-
- 
+    else
+    return INCORRECT;
 }
+
+
+
