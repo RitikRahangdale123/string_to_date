@@ -1,5 +1,15 @@
 include<stdio.h>
 
+typedef struct my_date_t
+{
+    int date;       /*<<< date */
+    int month;      /*<<< month */
+    int year;       /*<<< year   */
+}my_date_t;
+
+
+
+
    class my_date_t
     {
         satic void Main(string[] args)
@@ -23,6 +33,7 @@ include<stdio.h>
 
 int main()
 {
+    int date,month,year;
 
     printf("%d",date);
     printf("%d",month);
